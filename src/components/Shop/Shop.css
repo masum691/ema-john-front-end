@@ -15,3 +15,24 @@
     margin-right: 5px;
     margin-left: 50px;
 }
+.pagination button{
+    background-color: rgb(238, 238, 238)8, 238, 238);
+    border: none;
+    margin-right: 22px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: black;
+    cursor: pointer;
+}
+.pagination .selected{
+    background-color: rgb(94, 73, 190);
+    color: white;
+}
+/* .pagination button{
+    background-color: lime;
+    border: none;
+    margin-right: 22px;
+    padding: 22px 26px;
+    border-radius: 50%;
+} */
