@@ -8,23 +8,24 @@ import { Link } from 'react-router-dom';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
     // products to be rendered on the UI
     const [displayProducts, setDisplayProducts] = useState([]);
 
+    const size = 10;
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch(`http://localhost:5000/products?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data.products);
                 setDisplayProducts(data.products);
                 const count = data.count;
-                const pageNumber = Math.ceil(count/10);
+                const pageNumber = Math.ceil(count/size);
                 setPageCount(pageNumber);
             });
-    }, []);
+    }, [page]);
 
 
 
@@ -78,7 +79,7 @@ const Shop = () => {
                             className={number === page? 'selected' : ''}
                             key={number}
                             onClick={() => setPage(number)}
-                            >{number}</button>)
+                            >{number + 1}</button>)
                         }
                     </div>
                 </div>
